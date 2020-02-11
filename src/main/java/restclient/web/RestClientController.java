@@ -65,6 +65,12 @@ public class RestClientController {
                  return "Component with id="+id+" was sent to Artemis";
     }
 
+    @GetMapping("/getComponent")
+    public Component getComponent(@PathVariable Long id){
+        return jmsMessagingService.getComponent();
+
+    }
+
     @PostMapping(path = "/saveComponent", consumes = "application/json")
     @ResponseStatus(HttpStatus.CREATED)
     public String saveComponent(@RequestBody Component component){
