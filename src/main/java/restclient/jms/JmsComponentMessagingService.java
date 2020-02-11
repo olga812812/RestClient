@@ -19,6 +19,6 @@ public class JmsComponentMessagingService implements ComponentMessagingService{
     @Override
     public void sendComponent(Component component) {
         MessagePostProcessor addComponentSource = message->{message.setStringProperty("COMPONENT_SOURCE","REST"); return message;};
-            jms.convertAndSend("destination name", component, addComponentSource);
+            jms.convertAndSend("artemis", component, addComponentSource);
     }
 }

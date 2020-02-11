@@ -60,7 +60,8 @@ public class RestClientController {
 
     @GetMapping("/convertAndSend/component/{id}")
     public String sendComponent(@PathVariable Long id){
-                 jmsMessagingService.sendComponent();
+                 Component component = restTemplate.getForObject(url2BasePath+"/components/"+id, Component.class);
+                 jmsMessagingService.sendComponent(component);
                  return "Component with id="+id+" was sent to Artemis";
     }
 
