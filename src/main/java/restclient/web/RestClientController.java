@@ -66,7 +66,7 @@ public class RestClientController {
     }
 
     @GetMapping("/getComponent")
-    public Component getComponent(@PathVariable Long id){
+    public Component getComponent(){
         return jmsMessagingService.getComponent();
 
     }
